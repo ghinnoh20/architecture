@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Repository;
+namespace Core.Domains;
 
 public partial class E8Log
 {
