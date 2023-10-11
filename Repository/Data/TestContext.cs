@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Repository;
+using Core.Domains;
 
 namespace Repository.Data;
 
