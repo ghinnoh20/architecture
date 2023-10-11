@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace Repository.Implementations
 {
-    public class TestRepository<T> : IRepository<T> where T : class
+    public class TestRepository<T> : ITestRepository<T> where T : class
     {
         private readonly TestContext _context;
         private DbSet<T> _entity;

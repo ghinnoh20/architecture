@@ -9,7 +9,7 @@ namespace RepositoryTest.StudentRepository
     [TestClass]
     public class CreateStudentTest
     {
-        IRepository<Student> _repository;
+        ITestRepository<Student> _repository;
 
         [TestInitialize]
         public void Init()
