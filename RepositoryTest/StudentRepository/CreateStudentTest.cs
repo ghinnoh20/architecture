@@ -4,16 +4,16 @@ using Repository;
 using Repository.Implementations;
 using Repository.Interfaces;
 
-namespace RepositoryTest
+namespace RepositoryTest.StudentRepository
 {
     [TestClass]
-    public class UnitTest1
+    public class CreateStudentTest
     {
-        IRepository<Student> _repository;        
+        IRepository<Student> _repository;
 
         [TestInitialize]
         public void Init()
-        {            
+        {
             _repository = new TestRepository<Student>(new Repository.Data.TestContext());
         }
 
