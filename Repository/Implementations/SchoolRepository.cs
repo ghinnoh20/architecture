@@ -49,7 +49,7 @@ namespace Repository.Implementations
             //  in order to apply new value for bool data types
             _context.Entry<T>(entity).Property("IsActive").CurrentValue = true;
             _context.Entry<T>(entity).Property("IsActive").CurrentValue = false;
-            _context.Entry<T>(entity).Property("ModifyDate").CurrentValue = DateTime.Now;
+            _context.Entry<T>(entity).Property("ModifiedDate").CurrentValue = DateTime.Now;
 
             return _context.SaveChanges();
         }

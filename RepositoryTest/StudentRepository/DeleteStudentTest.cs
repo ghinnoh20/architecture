@@ -26,7 +26,29 @@ namespace RepositoryTest.StudentRepository
                 var input = 1;
                 var output = _repository.Delete(input);
 
-                Assert.IsNotNull(output);
+                Assert.AreEqual(1, output);
+                Console.WriteLine(JsonConvert.SerializeObject(output));
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        /// <summary>
+        ///     Delete a non existing data
+        /// </summary>
+        [TestMethod]
+        public void DeleteStudentTest02()
+        {
+            try
+            {
+                var input = 32878;
+                var output = _repository.Delete(input);
+
+
+                Assert.AreNotEqual(1, output);
                 Console.WriteLine(JsonConvert.SerializeObject(output));
             }
             catch (Exception ex)
