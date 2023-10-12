@@ -43,9 +43,13 @@ namespace Repository.Implementations
             var entity = (T)Activator.CreateInstance(typeof(T));
             entity.GetType().GetProperty("Id").SetValue(entity, id);
 
-            _context.Attach(entity);
+            _context.Attach<T>(entity);
 
-            _context.Entry(entity).Property("IsActive").CurrentValue = false;
+            //  need to change the value to true first
+            //  in order to apply new value for bool data types
+            _context.Entry<T>(entity).Property("IsActive").CurrentValue = true;
+            _context.Entry<T>(entity).Property("IsActive").CurrentValue = false;
+            _context.Entry<T>(entity).Property("ModifyDate").CurrentValue = DateTime.Now;
 
             return _context.SaveChanges();
         }
