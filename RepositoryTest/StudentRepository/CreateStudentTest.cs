@@ -31,6 +31,8 @@ namespace RepositoryTest.StudentRepository
                 var output = _repository.Create(input);
 
                 Assert.AreNotEqual(0, output);
+
+                Console.WriteLine($"New student with Id: {input.Id} created");
             }
             catch (Exception ex)
             {
