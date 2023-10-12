@@ -55,7 +55,7 @@ public partial class SchoolContext : DbContext
             entity.Property(e => e.ModifiedBy)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.ModifyDate).HasColumnType("datetime");
+            entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
             entity.Property(e => e.Number)
                 .HasMaxLength(20)
                 .IsUnicode(false);
@@ -124,7 +124,7 @@ public partial class SchoolContext : DbContext
             entity.Property(e => e.ModifiedBy)
                 .HasMaxLength(50)
                 .IsUnicode(false);
-            entity.Property(e => e.ModifyDate).HasColumnType("datetime");
+            entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
         });
 
         OnModelCreatingPartial(modelBuilder);
