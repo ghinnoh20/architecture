@@ -7,10 +7,10 @@ namespace Repository.Implementations
 {
     public class TestRepository<T> : ITestRepository<T> where T : class
     {
-        private readonly TestContext _context;
+        private readonly SchoolContext _context;
         private DbSet<T> _entity;
 
-        public TestRepository(TestContext testContext)
+        public TestRepository(SchoolContext testContext)
         {
             _context = testContext;
             _entity = _context.Set<T>();

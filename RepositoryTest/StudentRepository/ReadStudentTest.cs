@@ -15,7 +15,7 @@ namespace RepositoryTest.StudentRepository
         [TestInitialize]
         public void Init()
         {
-            _repository = new TestRepository<Student>(new Repository.Data.TestContext());
+            _repository = new TestRepository<Student>(new Repository.Data.SchoolContext());
         }
 
         [TestMethod]

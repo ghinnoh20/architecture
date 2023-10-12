@@ -7,13 +7,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Repository.Data;
 
-public partial class TestContext : DbContext
+public partial class SchoolContext : DbContext
 {
-    public TestContext()
+    public SchoolContext()
     {
     }
 
-    public TestContext(DbContextOptions<TestContext> options)
+    public SchoolContext(DbContextOptions<SchoolContext> options)
         : base(options)
     {
     }

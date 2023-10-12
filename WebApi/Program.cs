@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<TestContext>(options => options.UseSqlServer(ConnectionString));
+builder.Services.AddDbContext<SchoolContext>(options => options.UseSqlServer(ConnectionString));
 builder.Services.AddScoped(typeof(IRepository<>), typeof(TestRepository<>));
 
 builder.Services.AddControllers();
