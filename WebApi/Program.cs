@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var ConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<SchoolContext>(options => options.UseSqlServer(ConnectionString));
-builder.Services.AddScoped(typeof(IRepository<>), typeof(TestRepository<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(SchoolRepository<>));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

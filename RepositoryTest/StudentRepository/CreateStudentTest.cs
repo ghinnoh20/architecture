@@ -9,12 +9,12 @@ namespace RepositoryTest.StudentRepository
     [TestClass]
     public class CreateStudentTest
     {
-        ITestRepository<Student> _repository;
+        ISchoolRepository<Student> _repository;
 
         [TestInitialize]
         public void Init()
         {
-            _repository = new TestRepository<Student>(new Repository.Data.SchoolContext());
+            _repository = new SchoolRepository<Student>(new Repository.Data.SchoolContext());
         }
 
         [TestMethod]

@@ -5,12 +5,12 @@ using System.Linq.Expressions;
 
 namespace Repository.Implementations
 {
-    public class TestRepository<T> : ITestRepository<T> where T : class
+    public class SchoolRepository<T> : ISchoolRepository<T> where T : class
     {
         private readonly SchoolContext _context;
         private DbSet<T> _entity;
 
-        public TestRepository(SchoolContext testContext)
+        public SchoolRepository(SchoolContext testContext)
         {
             _context = testContext;
             _entity = _context.Set<T>();
