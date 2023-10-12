@@ -35,5 +35,26 @@ namespace RepositoryTest.StudentRepository
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        /// <summary>
+        ///     Read non existing record
+        /// </summary>
+        [TestMethod]
+        public void ReadStudentTest02()
+        {
+            try
+            {
+                var input = 293021;
+                var output = _repository.Read(input);
+
+                Assert.IsNull(output);
+                Console.WriteLine($"Student with Id:{input} does not exists.");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }
