@@ -40,6 +40,21 @@ namespace Repository.Implementations
 
         public int Delete(int id)
         {
+            var entity = _entity.Find(id);
+
+            if(entity == null)
+            {
+                return 0;
+            }
+
+            entity.GetType().GetProperty("IsActive").SetValue(entity, false);
+            entity.GetType().GetProperty("ModifiedDate").SetValue(entity, DateTime.Now);
+
+            _context.Attach<T>(entity);
+
+            return _context.SaveChanges();
+
+            /* === Code below is updating a record without retrieving it ===
             var entity = (T)Activator.CreateInstance(typeof(T));
             entity.GetType().GetProperty("Id").SetValue(entity, id);
 
@@ -52,6 +67,7 @@ namespace Repository.Implementations
             _context.Entry<T>(entity).Property("ModifiedDate").CurrentValue = DateTime.Now;
 
             return _context.SaveChanges();
+            */
         }
 
         public T Read(int id)

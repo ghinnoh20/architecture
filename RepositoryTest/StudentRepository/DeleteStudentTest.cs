@@ -49,12 +49,12 @@ namespace RepositoryTest.StudentRepository
 
 
                 Assert.AreNotEqual(1, output);
-                Console.WriteLine(JsonConvert.SerializeObject(output));
+                Console.WriteLine($"Student with Id:{input} does not exists.");
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.ToString());
+                Assert.Fail();
             }
         }
     }
