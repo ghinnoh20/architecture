@@ -87,6 +87,14 @@ namespace Repository.Implementations
                 throw new ArgumentNullException("entity");
             }
 
+            var result = _entity.Find(
+                entity.GetType().GetProperty("Id").GetValue(entity));
+
+            if (result == null)
+            {
+                return 0;
+            }
+
             return _context.SaveChanges();
         }
     }
