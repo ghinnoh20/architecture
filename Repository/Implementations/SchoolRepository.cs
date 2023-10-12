@@ -38,6 +38,18 @@ namespace Repository.Implementations
             return _context.SaveChanges();
         }
 
+        public int Delete(int id)
+        {
+            var entity = (T)Activator.CreateInstance(typeof(T));
+            entity.GetType().GetProperty("Id").SetValue(entity, id);
+
+            _context.Attach(entity);
+
+            _context.Entry(entity).Property("IsActive").CurrentValue = false;
+
+            return _context.SaveChanges();
+        }
+
         public T Read(int id)
         {
             return _entity.Find(id);

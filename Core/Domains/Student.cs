@@ -15,7 +15,7 @@ public partial class Student
 
     public DateTime BirthDate { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public DateTime CreateDate { get; set; }
 

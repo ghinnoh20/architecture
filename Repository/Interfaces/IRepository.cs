@@ -9,5 +9,6 @@ namespace Repository.Interfaces
         IList<T> Read(Expression<Func<T, bool>> predicate);
         int Update(T entity);
         int Delete(T entity);
+        int Delete(int id);
     }
 }
