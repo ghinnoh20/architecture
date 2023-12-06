@@ -11,6 +11,6 @@ namespace Service.Interfaces
 {
     public interface IStudentService : IService<Student>
     {
-
+        
     }
 }

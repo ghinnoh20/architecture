@@ -40,5 +40,34 @@ namespace RepositoryTest.StudentRepository
                 Console.WriteLine(ex.ToString());
             }
         }
+
+
+        /// <summary>
+        ///     Add new user without Lastname
+        /// </summary>
+        [TestMethod]
+        public void CreateStudentTest02()
+        {
+            try
+            {
+                var input = new Student();
+                input.FirstName = Guid.NewGuid().ToString();
+                input.MiddleName = Guid.NewGuid().ToString();
+                input.LastName = null;
+                input.BirthDate = DateTime.Now;
+
+                var output = _repository.Create(input);
+
+                Assert.AreEqual(0, output);
+
+                Console.WriteLine($"New student with Id: {input.Id} created");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Assert.Fail();
+                
+            }
+        }
     }
 }
