@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using Repository.Data;
 using Repository.Interfaces;
 using System.Linq.Expressions;
@@ -14,6 +15,42 @@ namespace Repository.Implementations
         {
             _context = testContext;
             _entity = _context.Set<T>();
+        }
+
+        public int BulkInsert(List<T> entities)
+        {
+            var output = 0;
+
+            using (var connection = new NpgsqlConnection(""))
+            {
+                connection.Open();
+
+                // Create a temporary table to hold the data
+                using (var command = new NpgsqlCommand("CREATE TEMPORARY TABLE temp_table (id INT, name TEXT)", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Copy data to the temporary table using the COPY command
+                //using (var writer = connection.BeginBinaryImport("COPY temp_table (id, name) FROM STDIN (FORMAT BINARY)"))
+                //{
+                //    foreach (var item in entities)
+                //    {
+                //        writer.StartRow();
+                //        writer.Write(item.Id, NpgsqlDbType.Integer);
+                //        writer.Write(item.Name, NpgsqlDbType.Text);
+                //    }
+                //    writer.Complete();
+                //}
+
+                // Merge the data from the temporary table into the actual table
+                using (var command = new NpgsqlCommand("INSERT INTO actual_table SELECT * FROM temp_table", connection))
+                {
+                    output = command.ExecuteNonQuery();
+                }
+
+                return 0;
+            }
         }
 
         public int Create(T entity)

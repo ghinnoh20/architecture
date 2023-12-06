@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         public IActionResult Get()
         {
             var result = _service.Read(x=> x.IsActive == true);
-
+            
             if (result == null)
             {
                 return NotFound();

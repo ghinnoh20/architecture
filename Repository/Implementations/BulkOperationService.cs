@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Interfaces
+namespace Repository.Implementations
 {
-    public interface ISchoolRepository<T> : IRepository<T>
+    public class BulkOperationService
     {
-        int BulkInsert(List<T> entities);
+
     }
 }
